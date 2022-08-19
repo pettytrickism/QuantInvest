@@ -10,8 +10,6 @@ import telepot  # 설치
 class UpbitPy():
     def __init__(self):
         while True:
-            # super().__init__()
-
             # 로그파일 생성
             now = datetime.datetime.now()
             self.check_fail = 'log//' + now.strftime('%Y-%m-%d_%H%M%S') + '.txt'
