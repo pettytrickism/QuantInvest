@@ -205,7 +205,7 @@ class UpbitPy():
             time.sleep(0.1)
 
         now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        sendText = '%s - 이동평균 계산 : %s\n' % (now, self.tickers)
+        sendText = '%s - 이동평균 계산 : %s\n' % (now, self.MAline)
         print(sendText)
         file = open(self.check_fail, 'a')
         file.write(sendText)
