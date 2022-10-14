@@ -47,7 +47,7 @@ class UpbitPy():
 
                     if self.tickers[ticker][2] == 0:
                         if nowPrice > int(self.tickers[ticker][0]):
-                            ret = self.upbit.buy_market_order(ticker, self.KRWbalance[ticker])  # 매수 (티커, 금액)
+                            ret = self.upbit.buy_market_order(ticker, self.KRWbalances[ticker])  # 매수 (티커, 금액)
                             now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                             sendText = "%s - %s 매수(현재가(%s)가 매수 목표가(%s) 이상)\n" % (now, ticker, nowPrice, self.tickers[ticker])
                             print(sendText)
