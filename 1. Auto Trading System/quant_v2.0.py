@@ -101,7 +101,7 @@ def getCodeInfo():
 
     cnt = 1
     for row in rows:
-        print("(%s / %s) %s(%s) 주식 정보 가져오기" % (cnt, len(rows), row[1], row[2]), end='')
+        print("(%s / %s) %s(%s) 주식 정보 가져오기 : " % (cnt, len(rows), row[1], row[2]), end='')
         eps, sps, bps, cfps = 0, 0, 0, 0
 
         finance_url = 'http://comp.fnguide.com/SVO2/ASP/SVD_Invest.asp?pGB=1&cID=&MenuYn=Y&ReportGB=B&NewMenuID=105&stkGb=701&gicode=A' + str(row[2])
@@ -110,7 +110,7 @@ def getCodeInfo():
         if finance_page.text.find('error2.htm') == -1:  # 일부 주식은 투자지표가 오류로 되어 안나타남 예) 094800 맵스리얼티1
             finance_text = finance_page.text.replace('(원)', '') # 일부 주식은 (원) 이 없음 예) 096300 베트남개발1
             finance_tables = pd.read_html(finance_text)
-            temp_df = finance_tables[1]
+            temp_df = finance_tables[3]
             temp_df = temp_df.set_index(temp_df.columns[0])
         else:
             temp_df = [0]
