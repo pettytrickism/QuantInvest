@@ -21,7 +21,7 @@ class UpbitPy():
         now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         sendText = "%s - 변동성 돌파 전략을 시작합니다.\n" % now
         print(sendText)
-        file = open(self.check_fail, 'a')
+        file = open(self.check_fail, 'a', encoding='utf-8')
         file.write(sendText)
         file.close()
         self.send_msg(sendText)
