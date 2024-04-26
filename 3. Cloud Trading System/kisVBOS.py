@@ -93,8 +93,8 @@ class KisVBOS():
         time.sleep(0.1)
 
     def send_msg(self, msg):
-        apiToken = "863154404:AAF6hb_eeScAqIfqfalm14ZR2pGOwRD5HkE"
-        chatId = "451041516"
+        apiToken = "텔레그램 API 토큰"
+        chatId = "쳇ID"
         bot = telegram.Bot(apiToken)
         bot.sendMessage(chatId, msg)
 
