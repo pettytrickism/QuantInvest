@@ -12,10 +12,10 @@ class KisVBOS():
     def __init__(self):
         # 매매시간 아니면 종료
         nowTime = int(datetime.datetime.now().strftime('%H%M'))
-        if nowTime in range(910, 1520):
+        if nowTime not in range(910, 1520):
             # Windows와 Linux 확인
-            if os.getcwd() == '/home/ubuntu':
-                self.path = '/home/ubuntu/py/'
+            if os.getcwd() == '/home/centos':
+                self.path = '/home/centos/py/'
             else:
                 self.path = ''
 
@@ -43,7 +43,7 @@ class KisVBOS():
                         self.send_msg(sendText)
 
                 now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                sendText = "%s - 매매종료(현재시간 : %s)\n" % (now, nowTime)
+                sendText = "%s - 매매종료\n" % (now)
                 print(sendText)
                 self.log_print(sendText)
                 self.send_msg(sendText)
@@ -93,8 +93,8 @@ class KisVBOS():
         time.sleep(0.1)
 
     def send_msg(self, msg):
-        apiToken = "텔레그램 API 토큰"
-        chatId = "쳇ID"
+        apiToken = "863154404:AAF6hb_eeScAqIfqfalm14ZR2pGOwRD5HkE"
+        chatId = "451041516"
         bot = telegram.Bot(apiToken)
         bot.sendMessage(chatId, msg)
 
@@ -166,7 +166,7 @@ class KisVBOS():
         res = requests.get(URL, headers=headers, params=qparams)
         time.sleep(0.1)
 
-        myStocks = res.json()['output1']
+        myStocks = res.json()['output1'][0]
         for myStock in myStocks:
             self.stocks[myStock['pdno']]["buy_count"] = int(myStock['hldg_qty'])
             self.stocks[myStock['pdno']]["buy_price"] = round(float(myStock['pchs_avg_pric']))
