@@ -167,9 +167,9 @@ class KisVBOS():
         time.sleep(0.1)
 
         myStocks = res.json()['output1']
-        for myStock in myStocks:
-            self.stocks[myStock[0]['pdno']]["buy_count"] = int(myStock[0]['hldg_qty'])
-            self.stocks[myStock[0]['pdno']]["buy_price"] = round(float(myStock[0]['pchs_avg_pric']))
+        for idx, myStock in enumerate(myStocks):
+            self.stocks[myStock[idx]['pdno']]["buy_count"] = int(myStock[idx]['hldg_qty'])
+            self.stocks[myStock[idx]['pdno']]["buy_price"] = round(float(myStock[idx]['pchs_avg_pric']))
 
         self.myTotalAssets = int(res.json()['output2'][0]['tot_evlu_amt'])
         self.eachAssets = round(self.myTotalAssets / len(self.stocks))  # 주식 한종목당 배정 금액
