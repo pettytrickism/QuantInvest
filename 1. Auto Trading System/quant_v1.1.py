@@ -15,14 +15,14 @@ nowDateTime = datetime.datetime.now().strftime('%Y%m%d%H%M')
 
 # 각종 함수 정의
 def resetDB():
-   print("데이터베이스 초기화")
-   connect = sqlite3.connect(DBPath, isolation_level=None)
-   sqlite3.Connection
-   cursor = connect.cursor()
-   cursor.execute("DELETE FROM StockRank;")
-   cursor.execute("DELETE FROM StockHaving;")
-   cursor.execute("DELETE FROM QuantList;")
-   connect.close()
+    print("데이터베이스 초기화")
+    connect = sqlite3.connect(DBPath, isolation_level=None)
+    sqlite3.Connection
+    cursor = connect.cursor()
+    cursor.execute("DELETE FROM StockRank;")
+    cursor.execute("DELETE FROM StockHaving;")
+    cursor.execute("DELETE FROM QuantList;")
+    connect.close()
 
 def getCodeList():
     print("종목 리스트 파일 다운로드 시작")
