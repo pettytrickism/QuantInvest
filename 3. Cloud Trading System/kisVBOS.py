@@ -12,7 +12,7 @@ class KisVBOS():
     def __init__(self):
         # 매매시간 아니면 종료
         nowTime = int(datetime.datetime.now().strftime('%H%M'))
-        if nowTime not in range(910, 1520):
+        if nowTime in range(910, 1520):
             # Windows와 Linux 확인
             if os.getcwd() == '/home/centos':
                 self.path = '/home/centos/py/'
