@@ -90,7 +90,7 @@ class KisVBOS():
                 nowprice = self.stocks[code]["now_price"]  # 현재가
                 if self.stocks[code]["buy_count"] > 0:
                     if nowprice < self.stocks[code]["5ma"]:
-                        self.dealStock(code, self.stocks[code]["buy_count"], nowprice, self.sell_trid, "33")
+                        self.dealStock(code, self.stocks[code]["buy_count"], 0, self.sell_trid, "33")
 
                         now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                         sendText = "%s - 종가가 5일이평선 이하로 매도 %s\n" % (now, code)
